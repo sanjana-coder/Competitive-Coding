@@ -8,6 +8,7 @@
         "cmath": "cpp",
         "xlocnum": "cpp",
         "numeric": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "string": "cpp"
     }
 }
