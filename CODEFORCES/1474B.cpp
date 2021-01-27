@@ -52,7 +52,7 @@ int x;
             break;
         }
     }
-    cout << min(1ll * p[0] * p[1], 1ll * p[0] * p[0] * p[0]) << "\n";
+    cout << p[0]*p[1] <<endl;
 }
         
 }
