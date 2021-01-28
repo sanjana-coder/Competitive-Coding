@@ -17,7 +17,11 @@ int main()
         ll r,g,b,w;
         cin>>r>>g>>b>>w;
         int p = r%2+g%2+b%2+w%2;
-        if(p<=1 || p>=3 && (r>0 && g>0 && b>0))
+        if(p<=1)
+        {
+            cout<<"YES"<<endl;
+        }
+        else if((r-1)%2+(g-1)%2+(b-1)%2+(w+3)%2 <= 1 && r && b&& g)
         {
             cout<<"YES"<<endl;
         }
