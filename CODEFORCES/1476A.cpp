@@ -17,23 +17,7 @@ int main()
     {
         ll n,k;
         cin>>n>>k;
-        if(n==1) cout<<k<<endl;
-        else 
-        {
-            if(n>k) 
-            {
-                int i=2;
-                ll m=k;
-                while(n>k) 
-                {
-                    k=m*i;
-                    i++;
-                }
-            }
-            cout<<((k+n-1)/n)<<endl;
-        }
-        
-
-       
+        k*=(n+k-1)/k;
+        cout<<(k+n-1)/n<<endl;       
     } 
 }
