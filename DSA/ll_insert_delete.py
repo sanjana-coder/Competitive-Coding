@@ -6,26 +6,26 @@ class SLList:
             self.next = None
 
     def __init__(self):
-        self.head = self.node(None)
+        self.head = None
         self.sz = 0
 
     def insertLast(self,data):
         u=self.node(data)
         #insert your code here
         curnode = self.head
-        while curnode!= None:
+        while curnode.next:
             curnode = curnode.next
         curnode.next = u
         self.sz += 1
-        return None
+        return
 
     def insertFirst(self,data):
         u=self.node(data)
         #insert your code here
-        curnode = self.head
-        u.next = curnode
+        u.next = self.head
+        self.head = u
         self.sz += 1
-        return None
+        return
 
     def insertAfter(self,u,v): #insert v after u node.
     
@@ -36,13 +36,16 @@ class SLList:
             print ("Linked List Empty Exception")
         else:
             curnode = self.head
-            while curnode.next != x:
+            while curnode.element != x.element:
                 curnode = curnode.next
-            curnode = curnode.next
-            x.next = y
-            y.next = curnode
+            if(curnode.next == None):
+                curnode.next = y
+                y.next = None
+                return
+            y.next = curnode.next
+            curnode.next = y
             self.sz += 1
-        return None
+        return
 
     def deleteFirst(self):
         #insert your code here
@@ -54,7 +57,7 @@ class SLList:
             self.head = temp
             curnode.next = None
             self.sz -= 1
-        return None
+        return
 
     def deleteLast(self):
         #insert your code here
@@ -62,13 +65,12 @@ class SLList:
             print ("Linked List Empty Exception")
         else:
             curnode = self.head
-            while curnode!= None:
+            i=1
+            while i<self.sz-1:
                 curnode = curnode.next
-                if curnode.next == None:
-                    curenode.next = None
-                    self.sz -= 1
-                    break
-        return None
+                i +=1
+            curnode.next = None
+        return
 
     def printList(self):
         if (self.isEmpty()):
@@ -84,17 +86,19 @@ class SLList:
 
     def findElement(self, val):
         curnode = self.head
+        u=self.node(val)
         #insert your code here
         if (self.isEmpty()):
             print ("Linked List Empty Exception")
         else:
             while curnode != None:
-                if(curnode.element==self.val):
-                    print("The element is found")
+                if(curnode.element==u.element):
+                    print("Element Found")
+                    return True
                 else:
                     curnode=curnode.next
 
-        return None
+        return False
 
     def deleteSecondLast(self):
         #insert your code here
@@ -103,7 +107,7 @@ class SLList:
             return
         cur = self.head
         cnt = 1
-        while(cnt <= self.sz-2):
+        while(cnt < self.sz-2):
             cur = cur.next
             cnt += 1
         cur.next = cur.next.next
